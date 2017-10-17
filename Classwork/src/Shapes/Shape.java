@@ -1,9 +1,7 @@
 package Shapes;
 
-public class Shape 
+public interface Shape 
 {
-	public static void main (String[] args)
-	{
-		
-	}
+	public abstract double perimeter();
+	public abstract double area();
 }
