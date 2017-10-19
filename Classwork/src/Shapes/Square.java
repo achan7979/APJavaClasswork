@@ -12,6 +12,6 @@ public class Square extends Rectangle
 	@Override
 	public String toString()
 	{
-		return "Square Side Length = " + side + "/t Area = " + this.area() + "t/ Perimeter = " + this.perimeter();
+		return "Square Side Length = " + side + "\t Area = " + this.area() + "\t Perimeter = " + this.perimeter();
 	}
 }
