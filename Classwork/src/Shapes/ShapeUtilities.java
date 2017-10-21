@@ -6,7 +6,7 @@ public class ShapeUtilities
 	public static Shape getRandomShape()
 	{
 		Random r = new Random();
-		int x = r.nextInt(4);
+		int x = r.nextInt(5);
 		switch(x)
 		{
 		case 0:
@@ -15,8 +15,10 @@ public class ShapeUtilities
 			return new Rectangle(r.nextInt(100)+1,r.nextInt(100)+1);
 		case 2:
 			return new Square(r.nextInt(100)+1);
-		default:
+		case 3:
 			return new Triangle(r.nextInt(10)+20, r.nextInt(5)+10, r.nextInt(5)+20);
+		default:
+			return new Trapezoid(r.nextInt(100)+1, r.nextInt(50)+1);
 		
 		}
 	}

@@ -19,12 +19,13 @@ public class Runner {
     public static void main (String[] args)
     {
         Shape circle1 = new Circle(3);
-        Shape rectangle1 = new Rectangle(10, 4);
+        Shape rectangle1 = new Rectangle(10,4);
         Shape square1 = new Square(10);
-        Shape triangle1 = new Triangle(3, 4, 5);
+        Shape triangle1 = new Triangle(3,4,5);
+        Shape trapezoid1 = new Trapezoid(20,10);
 
-        System.out.println("First test out the hard coded shape arraay.\n\n");
-        Shape [] shapeArr = {circle1, rectangle1, square1, triangle1};
+        System.out.println("First test out the hard coded shape array.\n\n");
+        Shape [] shapeArr = {circle1, rectangle1, square1, triangle1, trapezoid1};
         
         for (Shape shape : shapeArr)
         {
@@ -37,7 +38,7 @@ public class Runner {
 
 
         
-        System.out.println("\n\n Now testing the random array.\n");
+        System.out.println("Now testing the random array.\n");
 
         shapeArr = new Shape[10];
         
