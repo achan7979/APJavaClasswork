@@ -30,6 +30,9 @@ public class Testing
 		
 		System.out.println(arr3);
 		System.out.println(arr4);
+		
+		printArr(arr1);
+		printArr(arr2);
 	}
 	public static int doubled(int x)
 	{
@@ -58,5 +61,12 @@ public class Testing
 			doubledArr[i] = doubled(theArr[i]);
 		}
 		return doubledArr;
+	}
+	public static void printArr (Object[] arr)
+	{
+		for (Object x : arr)
+		{
+			System.out.println(x);
+		}
 	}
 }
