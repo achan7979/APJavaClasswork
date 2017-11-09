@@ -5,12 +5,15 @@ public class Lab3ONE
 	public static void main(String[] args) 
 	{
 		int[] testArray = {2,3,4,4,3,1,7,7,7};
-		removeDuplicates(testArray);
+		int[] removedDups = removeDuplicates(testArray);
+		for(int i = 0; i< removedDups.length; i++)
+		{
+			System.out.print("[" + removedDups[i] + "]");
+		}
 	}
 	public static int[] removeDuplicates(int[] list)
 	{
-		//
-		//boolean duplicate = false;
+		int[] removedDups = new int[] {};
 		int dups = 0;
 		for(int x = 0; x < list.length; x++)
 		{
@@ -23,34 +26,27 @@ public class Lab3ONE
 				}
 				
 			}
-			if (amount > 1)
+			if (amount == 1)
 			{
-				System.out.println("dup:" + list[x]);
-				//dont add it
-				dups++;
+				removedDups = appendArray(removedDups, list[x]);
 			}
-			else
-			{
-				System.out.println("ADD ME: " + list[x]);
-			}
-			
 		}
-		System.out.println(dups);
-		return null;
+		//System.out.println(dups);
+		return removedDups;
 	}
 	private static int[] appendArray(int[] test, int add)
 	{
 		int[] temp = new int[test.length+1];
-		for(int i = 0; i<test.length; i++)
+		for(int i = 0; i< test.length; i++)
 		{
 			temp[i] = test[i];
 		}
-		temp[test.length+1] = add;
+		temp[temp.length-1] = add;
 		return temp;
 	}
 	public static int[][] productArray(int[] arr1, int[] arr2)
 	{
-		return null;
+		
 	}
 	public static int[][] pascalTriangle(int n)
 	{
