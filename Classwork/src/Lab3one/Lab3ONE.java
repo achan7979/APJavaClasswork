@@ -38,7 +38,6 @@ public class Lab3ONE
 	public static int[] removeDuplicates(int[] list)
 	{
 		int[] removedDups = new int[] {};
-		int dups = 0;
 		for(int x = 0; x < list.length; x++)
 		{
 			int amount = 0;
