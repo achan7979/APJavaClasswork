@@ -57,6 +57,7 @@ public class Lab3ONE
 		//System.out.println(dups);
 		return removedDups;
 	}
+	
 	private static int[] appendArray(int[] test, int add)
 	{
 		int[] temp = new int[test.length+1];
@@ -67,6 +68,7 @@ public class Lab3ONE
 		temp[temp.length-1] = add;
 		return temp;
 	}
+	
 	public static int[][] productArray(int[] arr1, int[] arr2)
 	{
 		int[][] product = new int[arr1.length][arr2.length];
@@ -79,10 +81,12 @@ public class Lab3ONE
 		}
 		return product;
 	}
+	
 	public static int[][] pascalTriangle(int n)
 	{
 		return null;
 	}
+	
 	public static void printPascalTriangle(int[][] triangle)
 	{
 		
