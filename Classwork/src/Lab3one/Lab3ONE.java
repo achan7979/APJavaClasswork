@@ -34,6 +34,7 @@ public class Lab3ONE
 				count++;
 			}
 		}
+		
 	}
 	public static int[] removeDuplicates(int[] list)
 	{
