@@ -4,6 +4,7 @@ public class Lab3ONE
 {
 	public static void main(String[] args) 
 	{
+		/*
 		//Initializes Testing Arrays
 		int[] testArray = {2,3,4,4,3,1,7,7,7};
 		int[] test1 = {6,2,4,7};
@@ -34,6 +35,16 @@ public class Lab3ONE
 				count++;
 			}
 		}
+		*/
+		int[][] testTriangle = pascalTriangle(5);
+		for(int i = 0; i < testTriangle.length;i++)
+		{
+			for(int j = 0; j < testTriangle[i].length;j++)
+			{
+				System.out.print(testTriangle[i][j]);
+			}
+			System.out.println();
+		}
 	}
 	public static int[] removeDuplicates(int[] list)
 	{
@@ -54,7 +65,6 @@ public class Lab3ONE
 				removedDups = appendArray(removedDups, list[x]);
 			}
 		}
-		//System.out.println(dups);
 		return removedDups;
 	}
 	
@@ -84,7 +94,29 @@ public class Lab3ONE
 	
 	public static int[][] pascalTriangle(int n)
 	{
-		return null;
+		int[][] pascalTriangle = new int[n][];
+		for(int row = 0; row < n; row++)
+		{
+			int[] theRow = new int[row+1];
+			pascalTriangle[row] = theRow;
+			for(int column = 0; column < row + 1; column++)
+			{
+				if(column == 0)
+				{
+					pascalTriangle[row][column] = 1;
+				}
+				else if(column == row)
+				{
+					pascalTriangle[row][column] = 1;
+				}
+				else
+				{
+					pascalTriangle[row][column] = pascalTriangle[row-1][column-1] + 
+							pascalTriangle[row-1][column];
+				}
+			}
+		}
+		return pascalTriangle;
 	}
 	
 	public static void printPascalTriangle(int[][] triangle)
