@@ -37,6 +37,7 @@ public class Lab3ONE
 		}
 		*/
 		int[][] testTriangle = pascalTriangle(5);
+		/*
 		for(int i = 0; i < testTriangle.length;i++)
 		{
 			for(int j = 0; j < testTriangle[i].length;j++)
@@ -45,6 +46,8 @@ public class Lab3ONE
 			}
 			System.out.println();
 		}
+		*/
+		printPascalTriangle(testTriangle);
 	}
 	public static int[] removeDuplicates(int[] list)
 	{
@@ -121,6 +124,13 @@ public class Lab3ONE
 	
 	public static void printPascalTriangle(int[][] triangle)
 	{
-		
+		for(int i = 0; i < triangle.length;i++)
+		{
+			for(int j = 0; j < triangle[i].length;j++)
+			{
+				System.out.print("[" + triangle[i][j] + "]");
+			}
+			System.out.println();
+		}
 	}
 }
