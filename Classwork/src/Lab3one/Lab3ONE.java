@@ -4,7 +4,6 @@ public class Lab3ONE
 {
 	public static void main(String[] args) 
 	{
-		/*
 		//Initializes Testing Arrays
 		int[] testArray = {2,3,4,4,3,1,7,7,7};
 		int[] test1 = {6,2,4,7};
@@ -35,18 +34,10 @@ public class Lab3ONE
 				count++;
 			}
 		}
-		*/
+		
+		//Prints out Pascal's Triangle to a specific row amount
+		System.out.print("\n\nPascal's Triangle:\n");
 		int[][] testTriangle = pascalTriangle(5);
-		/*
-		for(int i = 0; i < testTriangle.length;i++)
-		{
-			for(int j = 0; j < testTriangle[i].length;j++)
-			{
-				System.out.print(testTriangle[i][j]);
-			}
-			System.out.println();
-		}
-		*/
 		printPascalTriangle(testTriangle);
 	}
 	public static int[] removeDuplicates(int[] list)
