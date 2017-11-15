@@ -40,6 +40,13 @@ public class Lab3ONE
 		int[][] testTriangle = pascalTriangle(5);
 		printPascalTriangle(testTriangle);
 	}
+	/**
+	 * Takes in an int[] and using the appendArray method adds the
+	 * elements that do not repeat to a new array and returns it 
+	 * 
+	 * @param list	an int[] that contains the test case 
+	 * @return array	that includes all non duplicate elements
+	 */
 	public static int[] removeDuplicates(int[] list)
 	{
 		int[] removedDups = new int[] {};
@@ -62,6 +69,14 @@ public class Lab3ONE
 		return removedDups;
 	}
 	
+	/**
+	 * A helper method that takes in an array and an integer and appends the integer
+	 * to the array.
+	 * 
+	 * @param test	an int[] that is empty at first but can later contain elements and is used to add upon
+	 * @param add	an int that is the number to be added to the new array
+	 * @return an array with the appended elements
+	 */
 	private static int[] appendArray(int[] test, int add)
 	{
 		int[] temp = new int[test.length+1];
@@ -72,7 +87,14 @@ public class Lab3ONE
 		temp[temp.length-1] = add;
 		return temp;
 	}
-	
+	/**
+	 * This method takes in two int[] arrays and multiplies each element and 
+	 * places the result in their respective locations in the 2d array
+	 * 
+	 * @param arr1	an int[] used to multiply with 
+	 * @param arr2	an int[] used to multiply with
+	 * @return a 2d array with each element of the row and column multiplied out
+	 */
 	public static int[][] productArray(int[] arr1, int[] arr2)
 	{
 		int[][] product = new int[arr1.length][arr2.length];
@@ -86,6 +108,15 @@ public class Lab3ONE
 		return product;
 	}
 	
+	/**
+	 * This method takes in an int and uses it as the number of rows the triangle is supposed to have.
+	 * It creates a new 2d array with a defined length, but each array in the main array doesn't have
+	 * a defined length. In the for loop, as we reach a higher row count, the length of the sub-arrays 
+	 * increase depending on the row count plus one. 
+	 * 
+	 * @param n	an int that represents the number of rows the triangle is supposed to have
+	 * @return a 2d array that represents pascal's triangle
+	 */
 	public static int[][] pascalTriangle(int n)
 	{
 		int[][] pascalTriangle = new int[n][];
@@ -113,13 +144,24 @@ public class Lab3ONE
 		return pascalTriangle;
 	}
 	
+	/**
+	 * Prints out the pascal triangle that was created in the above method. Uses a double for loop
+	 * and prints out each row's elements with spacing depending on the row number the loop is currently at.
+	 * 
+	 * @param triangle	A 2d array that was created in the method above
+	 */
 	public static void printPascalTriangle(int[][] triangle)
 	{
 		for(int i = 0; i < triangle.length;i++)
 		{
+			int x = (triangle.length-1)-i;
+			for(int j = 0; j < x; j++)
+			{
+				System.out.print(" ");
+			}
 			for(int j = 0; j < triangle[i].length;j++)
 			{
-				System.out.print("[" + triangle[i][j] + "]");
+				System.out.print(triangle[i][j]+ " ");
 			}
 			System.out.println();
 		}
