@@ -6,6 +6,7 @@ public class Recursion
 	{
 		int[] test1 = {0,1,2,3,4,5,6,7,8,9};
 		int[] test2 = {0,1,2,3,4,5,6,7,8};
+		int[] test3 = {0,4,5,6,12,15,17,23,29};
 		
 		for(int i = -1; i < test1.length+1; i++)
 		{
@@ -17,6 +18,8 @@ public class Recursion
 			System.out.print(binarySearch(test2,i,0,test2.length)+" ");
 		}
 		System.out.println();
+		
+		System.out.print(binarySearch(test2,-50,0,test3.length));
 	}
 	
 	public static int binarySearch(int[] nums, int query, int first, int last)
