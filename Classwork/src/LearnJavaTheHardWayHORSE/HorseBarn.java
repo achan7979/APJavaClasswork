@@ -23,9 +23,7 @@ public class HorseBarn
 		for(int i = 0; i < this.spaces.length; i++)
 		{
 			if(this.spaces[i] != null && name.equals(this.spaces[i].getName()))
-			{
 				return i;
-			}
 		}
 		return -1;
 	}
@@ -55,13 +53,9 @@ public class HorseBarn
 		for(int i = 0; i < this.spaces.length; i++)
 		{
 			if(this.spaces[i] != null)
-			{
 				barn = barn + this.spaces[i] + " ";
-			}
 			else
-			{
 				barn = barn + "[null] ";
-			}
 		}
 		return barn;
 	}

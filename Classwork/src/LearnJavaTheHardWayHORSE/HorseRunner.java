@@ -16,11 +16,11 @@ public class HorseRunner
 		HorseBarn barn = new HorseBarn(horses);
 		
 		System.out.println(barn);
-		System.out.println("Dusty Trail is in space: " + barn.findHorseSpace("Dusty Trail"));
+		System.out.println("Dusty Trail is in space: " + barn.findHorseSpace("Silver"));
 		
 		barn.consolidate();
 		
 		System.out.println(barn);
-		System.out.println("Dusty Trail is now in space: " + barn.findHorseSpace("Dusty Trail"));
+		System.out.println("Dusty Trail is now in space: " + barn.findHorseSpace("Silver"));
 	}
 }
