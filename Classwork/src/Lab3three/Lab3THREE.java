@@ -4,19 +4,64 @@ public class Lab3THREE
 {
 	public static void main(String[] args)
 	{
-		double[] test1 = {6.0,3.0,1.0,2.0,4.0,3.5,7.6,9.4,1.2};
-		selectionSort(test1);
+		int[] test1 = {6,4,7,10,45,22,53,1,6,0};
+		double[] test2 = {6.0,3.0,1.0,2.0,4.0,3.5,7.6,9.4,1.2};
+		int[] test3 = {5,6,3,7,1,0,4,9,5};
+		
+		insertionSort(test1);
+		selectionSort(test2);
+		bubbleSort(test3);
+		
+		System.out.println("Insertion Sort:");
 		for(int i = 0; i < test1.length; i++)
 		{
 			System.out.print("["+ test1[i] + "] ");
 		}
-	}
-	
-	public static void insertionSort(int[] list1)
-	{
 		
+		System.out.println("\n\nSelection Sort:");
+		for(int i = 0; i < test2.length; i++)
+		{
+			System.out.print("["+ test2[i] + "] ");
+		}
+		
+		System.out.println("\n\nBubble Sort:");
+		for(int i = 0; i < test3.length; i++)
+		{
+			System.out.print("["+ test3[i] + "] ");
+		}
 	}
 	
+	/**
+	 * Insertion sort method takes each element from the array and adds it to the 
+	 * front of the array in ascending order. It also keeps track of where the 
+	 * insertion occurs
+	 * 
+	 * @param list1 The list to be sorted
+	 */
+	public static void insertionSort(int[] list1) 
+	{
+		int j = 0;
+		for (int i = 0; i <= list1.length; i++)
+		{
+			for (int k = j-1; k >= 0; k--)
+			{
+				if (list1[k] > list1[j])
+				{
+					swap(list1,k,j);
+					j--;
+				}
+			}
+			j = i;
+		}
+	}
+	
+	/**
+	 * Selection sort finds the smallest element in the array and moves it
+	 * to the front of the array. Then it searches for the next smallest element
+	 * in the array and puts it after the first element and repeats
+	 * 
+	 * @param list1 The list to be sorted
+	 */
 	public static void selectionSort(double[] list1)
 	{
 		for(int i = 0; i < list1.length; i++)
@@ -25,15 +70,39 @@ public class Lab3THREE
 			{
 				if(list1[i] > list1[j])
 				{
-					swap(list1, i, j);
+					swap(list1,i,j);
 				}
 			}
 		}
 	}
 	
-	public static void bubbleSort(String[] list1)
+	/**
+	 * Bubble sort compares the first pair of elements and swaps them if the element
+	 * that comes first is greater than the second. It continues to compare the next pair 
+	 * of elements and swaps if needed. This method keeps track of how many swaps occurred in
+	 * each iteration until there are no swaps initiated, which then we know the array is sorted
+	 * 
+	 * @param list1 The list to be sorted
+	 */
+	public static void bubbleSort(int[] list1)
 	{
-		
+		int swaps = 0;
+		while(swaps == 0)
+		{
+			for(int i = 0; i < list1.length-1; i++) 
+			{
+				if(list1[i] > list1[i+1])
+				{
+					swap(list1,i,i+1);
+					swaps++;
+				}
+			}
+			if(swaps == 0)
+			{
+				break;
+			}
+			swaps = 0;
+		}
 	}
 	
 	/**
