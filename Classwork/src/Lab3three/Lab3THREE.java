@@ -7,28 +7,45 @@ public class Lab3THREE
 		int[] test1 = {6,4,7,10,45,22,53,1,6,0};
 		double[] test2 = {6.0,3.0,1.0,2.0,4.0,3.5,7.6,9.4,1.2};
 		int[] test3 = {5,6,3,7,1,0,4,9,5};
+		int[] runTimeTest = new int[100000];
+		for(int i = 0; i < runTimeTest.length; i++)
+		{
+			runTimeTest[i] = (int) Math.random()*50;
+		}
 		
-		insertionSort(test1);
-		selectionSort(test2);
-		bubbleSort(test3);
+		insertionSort(runTimeTest);
+		selectionSort(runTimeTest);
+		bubbleSort(runTimeTest);
 		
+		long startTime = System.nanoTime(); //record the startTime
 		System.out.println("Insertion Sort:");
-		for(int i = 0; i < test1.length; i++)
-		{
-			System.out.print("["+ test1[i] + "] ");
-		}
+		//for(int i = 0; i < runTimeTest.length; i++)
+		//{
+		//	System.out.print("["+ runTimeTest[i] + "] ");
+		//}
+		long endTime = System.nanoTime(); //record stopTime
+		long totalTime = endTime - startTime; //calculate totalTime
+		System.out.println("Time Taken in nanoseconds: " + totalTime);
 		
+		startTime = System.nanoTime(); //record the startTime
 		System.out.println("\n\nSelection Sort:");
-		for(int i = 0; i < test2.length; i++)
-		{
-			System.out.print("["+ test2[i] + "] ");
-		}
+		//for(int i = 0; i < runTimeTest.length; i++)
+		//{
+		//	System.out.print("["+ runTimeTest[i] + "] ");
+		//}
+		endTime = System.nanoTime(); //record stopTime
+		totalTime = endTime - startTime; //calculate totalTime
+		System.out.println("Time Taken in nanoseconds: " + totalTime);
 		
+		startTime = System.nanoTime(); //record the startTime
 		System.out.println("\n\nBubble Sort:");
-		for(int i = 0; i < test3.length; i++)
-		{
-			System.out.print("["+ test3[i] + "] ");
-		}
+		//for(int i = 0; i < runTimeTest.length; i++)
+		//{
+		//	System.out.print("["+ runTimeTest[i] + "] ");
+		//}
+		endTime = System.nanoTime(); //record stopTime
+		totalTime = endTime - startTime; //calculate totalTime
+		System.out.println("Time Taken in nanoseconds: " + totalTime);
 	}
 	
 	/**
@@ -62,7 +79,7 @@ public class Lab3THREE
 	 * 
 	 * @param list1 The list to be sorted
 	 */
-	public static void selectionSort(double[] list1)
+	public static void selectionSort(int[] list1)
 	{
 		for(int i = 0; i < list1.length; i++)
 		{

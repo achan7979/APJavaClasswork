@@ -1,15 +1,27 @@
 package Lab3four;
+import java.util.Arrays;
 
 public class Lab3FOUR 
 {
 	public static void main(String[] args) 
 	{
+		int[] testPartition = {5,7,2,6,3,8,2,6,2,4,5};
+		partition(testPartition,0,testPartition.length/2);
+		for(int i = 0; i < testPartition.length; i++)
+		{
+			System.out.print("[" + testPartition[i] + "] ");
+		}
 		
 	}
 	
 	public static void quickSort(int[] list1, int front, int back)
 	{
 		
+	}
+	
+	public static void partition(int[] list1, int front, int back)
+	{
+		  
 	}
 	
 	/**
