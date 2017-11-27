@@ -19,26 +19,23 @@ public class Lab3FOUR
 		
 	}
 	
-	public static void partition(int[] list1, int front, int back)
-	{
-		  
-	}
-	
 	/**
-	 * This method takes the first element of the array and sets it as the pivot. The
+	 * This method takes Array at index front and sets it as the pivot. The
 	 * pivot is used to test every element and see whether or not they are less or greater
-	 * than the pivot. All elements that are less than the pivot are swapped and moved to 
-	 * the left of the pivot and all elements that are greater than the pivot are swapped
-	 * and moved to the right of the pivot.
+	 * than the pivot. All elements that are less than the pivot and are within the index 
+	 * range of front and back are swapped and moved to the left of the pivot and all 
+	 * elements that are greater than the pivot are swapped and moved to the right of the pivot.
 	 * 
-	 * @param list
+	 * @param list The array to be partition
+	 * @param front The first number in the range of numbers to be partitioned
+	 * @param back The last number index in the range of numbers to be partitioned
 	 * @return
 	 */
-	public static int partition(int[] list)
+	public static int partition(int[] list, int front, int back)
 	{
-		int pivot = list[0];
-		int i = 0;
-		for (int j = 1; j < list.length; j++)
+		int pivot = list[front];
+		int i = front;
+		for (int j = front + 1; j < back; j++)
 		{
 			if (list[j] <= pivot)
 			{
@@ -46,7 +43,7 @@ public class Lab3FOUR
 				swap(list, i, j);
 			}
 		}
-		swap(list, i, 0);
+		swap(list, i, front);
 		return i;
 	}
 	
