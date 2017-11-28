@@ -5,20 +5,28 @@ public class Lab3FOUR
 {
 	public static void main(String[] args) 
 	{
-		int[] test1 = new int[100000];
-		for(int x = 0; x < test1.length; x++)
+		//Generates test array for quickSort method
+		int[] test1 = {3,6,2,23,3,1,3,0,55,32,1,5,6,3};
+		//Generates run time test array for quickSort method
+		int[] runTimeTest = new int[100000];
+		for(int x = 0; x < runTimeTest.length; x++)
 		{
-			test1[x] = (int) (Math.random()*50) + 1;
+			runTimeTest[x] = (int) (Math.random()*50) + 1;
 		}
+		
 		long startTime = System.nanoTime(); //record the startTime
-		quickSort(test1,0,test1.length);
+		System.out.println("Quick Sort Runtime Test:");
+		quickSort(runTimeTest,0,runTimeTest.length);
 		long endTime = System.nanoTime(); //record stopTime
 		long totalTime = endTime - startTime; //calculate totalTime
 		System.out.println("Time Taken in nanoseconds: " + totalTime);
-		//for(int i = 0; i < test1.length; i++)
-		//{
-		//	System.out.print("[" + test1[i] + "] ");
-		//}
+		
+		System.out.println("\nQuick Sort Test:");
+		quickSort(test1,0,test1.length);
+		for(int i = 0; i < test1.length; i++)
+		{
+			System.out.print("[" + test1[i] + "] ");
+		}
 	}
 	
 	/**
