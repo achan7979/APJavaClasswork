@@ -29,6 +29,11 @@ public class Lab3FOUR
 		}
 	}
 	
+	public static void shellSort(int[] list1)
+	{
+		
+	}
+	
 	/**
 	 * This method uses recursion to sort the array that is passed in. The base case
 	 * tests if the index is greater than or equal to the back index. If it is, then 
@@ -97,4 +102,5 @@ public class Lab3FOUR
 	    a[i] = a[j];
 	    a[j] = temp;
 	}
+	
 }
