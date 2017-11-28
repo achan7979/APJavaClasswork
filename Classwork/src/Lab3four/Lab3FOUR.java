@@ -5,18 +5,44 @@ public class Lab3FOUR
 {
 	public static void main(String[] args) 
 	{
-		int[] testPartition = {5,7,2,6,3,8,2,6,2,4,5};
-		partition(testPartition,0,testPartition.length/2);
-		for(int i = 0; i < testPartition.length; i++)
+		int[] test1 = new int[100000];
+		for(int x = 0; x < test1.length; x++)
 		{
-			System.out.print("[" + testPartition[i] + "] ");
+			test1[x] = (int) (Math.random()*50) + 1;
 		}
-		
+		long startTime = System.nanoTime(); //record the startTime
+		quickSort(test1,0,test1.length);
+		long endTime = System.nanoTime(); //record stopTime
+		long totalTime = endTime - startTime; //calculate totalTime
+		System.out.println("Time Taken in nanoseconds: " + totalTime);
+		//for(int i = 0; i < test1.length; i++)
+		//{
+		//	System.out.print("[" + test1[i] + "] ");
+		//}
 	}
 	
+	/**
+	 * This method uses recursion to sort the array that is passed in. The base case
+	 * tests if the index is greater than or equal to the back index. If it is, then 
+	 * the array has been sorted and the method stops recursing. If not, it partitions 
+	 * the array passed in from index front and back and quick sorts both sides.
+	 * 
+	 * @param list1 The array to be sorted
+	 * @param front	The front index of the range of numbers to be sorted
+	 * @param back The last index of the range of numbers to be sorted
+	 */
 	public static void quickSort(int[] list1, int front, int back)
 	{
-		
+		if (front >= back)
+		{
+			return;
+		}
+		else
+		{
+			int PIVOTindex = partition(list1, front, back);
+			quickSort(list1, front, PIVOTindex);
+			quickSort(list1, PIVOTindex + 1, back);
+		}
 	}
 	
 	/**
@@ -25,11 +51,12 @@ public class Lab3FOUR
 	 * than the pivot. All elements that are less than the pivot and are within the index 
 	 * range of front and back are swapped and moved to the left of the pivot and all 
 	 * elements that are greater than the pivot are swapped and moved to the right of the pivot.
+	 * It then returns the index of the pivot
 	 * 
 	 * @param list The array to be partition
 	 * @param front The first number in the range of numbers to be partitioned
 	 * @param back The last number index in the range of numbers to be partitioned
-	 * @return
+	 * @return the index of the pivot
 	 */
 	public static int partition(int[] list, int front, int back)
 	{
@@ -48,11 +75,11 @@ public class Lab3FOUR
 	}
 	
 	/**
-	 * This helper method swaps elements of the int[] at i and j by setting int[i] to a temp
-	 * so that the value isn't lost. It then sets int[i] to int[j] and setting int[j] 
-	 * to the temp
+	 * This helper method swaps elements of the integer array at i and j by 
+	 * setting a[i] to a temporary so that the value isn't lost. It then sets 
+	 * a[i] to a[j] and setting a[j] to the temporary variable
 	 * 
-	 * @param a the int[] that is passed in where elements need to be swapped
+	 * @param a the integer array that is passed in where elements need to be swapped
 	 * @param i	the first number that needs to be swapped with the second
 	 * @param j the second number that needs to be swapped with the first
 	 */
