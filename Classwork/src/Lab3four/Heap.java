@@ -4,11 +4,7 @@ public class Heap
 {
 	private int[] heap;
 	private int max;
-	
-	/**
-	 * 
-	 * @param heap
-	 */
+
 	public Heap(int[] heap)
 	{
 		this.heap = heap;
@@ -17,9 +13,11 @@ public class Heap
 	}
 	
 	/**
+	 * By multiplying the current index by 2 and adding 2, it gets the right child
+	 * of the current index
 	 * 
 	 * @param index
-	 * @return
+	 * @return the index of the right child
 	 */
 	private int getRight(int index)
 	{
@@ -27,9 +25,11 @@ public class Heap
 	}
 	
 	/**
+	 * By multiplying the current index by 2 and adding 1, it gets the left child
+	 * of the current index
 	 * 
 	 * @param index
-	 * @return
+	 * @return the index of the left child
 	 */
 	private int getLeft(int index)
 	{
@@ -37,9 +37,10 @@ public class Heap
 	}
 	
 	/**
+	 * By subtracting 1 and dividing it by 2, it gets the parent of the current child
 	 * 
 	 * @param index
-	 * @return
+	 * @return the index of the parent
 	 */
 	private int getParent(int index)
 	{
@@ -76,6 +77,9 @@ public class Heap
 	}
 	
 	/**
+	 * In order to make a proper heap, this method swaps values that are out of place.
+	 * If the any child is greater than the parent, then it swaps the values. If a swap
+	 * occurs, then it recursively continues to call itself until there are no swaps made.
 	 * 
 	 * @param index
 	 */
