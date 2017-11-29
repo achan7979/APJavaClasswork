@@ -7,6 +7,8 @@ public class Lab3FOUR
 	{
 		//Generates test array for quickSort method
 		int[] test1 = {3,6,2,23,3,1,3,0,55,32,1,5,6,3};
+		//Generates test array for heapSort method
+		int[] test2 = {4,46,12,4,6,2,6,2,12,6,8,2,1,0};
 		//Generates run time test array for quickSort method
 		int[] runTimeTest = new int[100000];
 		for(int x = 0; x < runTimeTest.length; x++)
@@ -21,17 +23,28 @@ public class Lab3FOUR
 		long totalTime = endTime - startTime; //calculate totalTime
 		System.out.println("Time Taken in nanoseconds: " + totalTime);
 		
+		startTime = System.nanoTime(); //record the startTime
+		System.out.println("Heap Sort Runtime Test:");
+		quickSort(runTimeTest,0,runTimeTest.length);
+		endTime = System.nanoTime(); //record stopTime
+		totalTime = endTime - startTime; //calculate totalTime
+		System.out.println("Time Taken in nanoseconds: " + totalTime);
+		
+		
 		System.out.println("\nQuick Sort Test:");
 		quickSort(test1,0,test1.length);
 		for(int i = 0; i < test1.length; i++)
 		{
 			System.out.print("[" + test1[i] + "] ");
 		}
-	}
-	
-	public static void shellSort(int[] list1)
-	{
 		
+		System.out.println("\nHeap Sort Test:");
+		Heap heap = new Heap(test2);
+		heap.heapSort();
+		for(int i = 0; i < test2.length; i++)
+		{
+			System.out.print("[" + test2[i] + "] ");
+		}
 	}
 	
 	/**
