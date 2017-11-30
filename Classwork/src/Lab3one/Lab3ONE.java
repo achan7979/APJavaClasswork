@@ -73,8 +73,8 @@ public class Lab3ONE
 	 * A helper method that takes in an array and an integer and appends the integer
 	 * to the array.
 	 * 
-	 * @param test	an int[] that is empty at first but can later contain elements and is used to add upon
-	 * @param add	an int that is the number to be added to the new array
+	 * @param test	an integer array that is empty at first but can later contain elements and is used to add upon
+	 * @param add	an integer array that is the number to be added to the new array
 	 * @return an array with the appended elements
 	 */
 	private static int[] appendArray(int[] test, int add)

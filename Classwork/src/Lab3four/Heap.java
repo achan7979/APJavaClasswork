@@ -48,7 +48,8 @@ public class Heap
 	}
 	
 	/**
-	 * 
+	 * This method swaps the maximum value to the end of the array, then rebuilds the 
+	 * heap and continues to repeat
 	 */
 	public void heapSort()
 	{
@@ -63,7 +64,7 @@ public class Heap
 	}
 	
 	/**
-	 * 
+	 * This method calls heapSomething on all parents
 	 */
 	private void makeHeap()
 	{

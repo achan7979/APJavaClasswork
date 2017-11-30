@@ -30,7 +30,6 @@ public class Lab3FOUR
 		totalTime = endTime - startTime; //calculate totalTime
 		System.out.println("Time Taken in nanoseconds: " + totalTime);
 		
-		
 		System.out.println("\nQuick Sort Test:");
 		quickSort(test1,0,test1.length);
 		for(int i = 0; i < test1.length; i++)

@@ -18,10 +18,6 @@ public abstract class Person
 	}
 	public int calculateAge(int[] date)
 	{
-		
-	}
-	public String toString()
-	{
-		
+		return 0;
 	}
 }
