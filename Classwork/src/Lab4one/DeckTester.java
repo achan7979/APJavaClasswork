@@ -4,7 +4,7 @@ public class DeckTester
 {
 	public static void main(String[] args) 
 	{
-		String[] ranks = {"ACE","2","3","4","5","6","7","8","9","10","JACK","QUEEN","KING"};
+		String[] ranks = {"2","3","4","5","6","7","8","9","10","JACK","QUEEN","KING","ACE"};
 		String[] suits = {"DIAMOND","CLOVER","HEART","SPADE"};
 		int[] pointValues = {1,2,3,4,5,6,7,8,9,10,11,12,13};
 		
