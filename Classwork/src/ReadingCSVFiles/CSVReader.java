@@ -29,8 +29,8 @@ public class CSVReader
 			String line = br.readLine();
 			while (line != null) 
 			{
-				String[] attributes = line.split(",");
-				UhHuh book = createBook(attributes);
+				String[] things = line.split(",");
+				UhHuh book = createUhhhhhh(things);
 				books.add(book);
 				line = br.readLine();
 			}
@@ -42,7 +42,7 @@ public class CSVReader
 		return books;
 	}
 	
-	private static UhHuh createBook(String[] metadata) 
+	private static UhHuh createUhhhhhh(String[] metadata) 
 	{ 
 		String name = metadata[0]; 
 		String mhm = metadata[1]; 
