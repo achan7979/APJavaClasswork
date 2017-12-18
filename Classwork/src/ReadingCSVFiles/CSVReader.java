@@ -13,8 +13,8 @@ public class CSVReader
 {
 	public static void main(String[] args)
 	{
-		List<UhHuh> books = readUhHuhFromCSV("Book1.csv"); 
-		for (UhHuh b : books) 
+		List<UhHuh> mmmmmm = readUhHuhFromCSV("Book1.csv"); 
+		for (UhHuh b : mmmmmm) 
 		{ 
 			System.out.println(b); 
 		}
@@ -22,7 +22,7 @@ public class CSVReader
 	
 	private static List<UhHuh> readUhHuhFromCSV(String fileName) 
 	{ 
-		List<UhHuh> books = new ArrayList<>(); 
+		List<UhHuh> yeeeeeet = new ArrayList<>(); 
 		Path pathToFile = Paths.get(fileName);
 		try (BufferedReader br = Files.newBufferedReader(pathToFile,StandardCharsets.US_ASCII)) 
 		{
@@ -30,8 +30,8 @@ public class CSVReader
 			while (line != null) 
 			{
 				String[] things = line.split(",");
-				UhHuh book = createUhhhhhh(things);
-				books.add(book);
+				UhHuh yeet = createUhhhhhh(things);
+				yeeeeeet.add(yeet);
 				line = br.readLine();
 			}
 		} 
@@ -39,7 +39,7 @@ public class CSVReader
 		{
             ioe.printStackTrace();
         }
-		return books;
+		return yeeeeeet;
 	}
 	
 	private static UhHuh createUhhhhhh(String[] metadata) 
