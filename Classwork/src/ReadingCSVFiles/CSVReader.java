@@ -1,23 +1,51 @@
 package ReadingCSVFiles;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
+import java.io.BufferedReader; 
+import java.io.IOException; 
+import java.nio.charset.StandardCharsets; 
+import java.nio.file.Files; 
+import java.nio.file.Path; 
+import java.nio.file.Paths; 
+import java.util.ArrayList; 
+import java.util.List; 
 
 public class CSVReader 
 {
-	public static void main(String[] args) throws FileNotFoundException 
+	public static void main(String[] args)
 	{
-		String location = "C:\\Users\\BT_1N3_19\\git\\APJavaClasswork\\Classwork\\Book1.csv";
-		File file = new File(location);
-		Scanner in = new Scanner(file);
-		while (in.hasNext())
-		{
-			System.out.println(in.next());
+		List<UhHuh> books = readUhHuhFromCSV("Book1.csv"); 
+		for (UhHuh b : books) 
+		{ 
+			System.out.println(b); 
 		}
-		in.close();
+	}
+	
+	private static List<UhHuh> readUhHuhFromCSV(String fileName) 
+	{ 
+		List<UhHuh> books = new ArrayList<>(); 
+		Path pathToFile = Paths.get(fileName);
+		try (BufferedReader br = Files.newBufferedReader(pathToFile,StandardCharsets.US_ASCII)) 
+		{
+			String line = br.readLine();
+			while (line != null) 
+			{
+				String[] attributes = line.split(",");
+				UhHuh book = createBook(attributes);
+				books.add(book);
+				line = br.readLine();
+			}
+		} 
+		catch (IOException ioe) 
+		{
+            ioe.printStackTrace();
+        }
+		return books;
+	}
+	
+	private static UhHuh createBook(String[] metadata) 
+	{ 
+		String name = metadata[0]; 
+		String mhm = metadata[1]; 
+		return new UhHuh(name, mhm);
 	}
 }
