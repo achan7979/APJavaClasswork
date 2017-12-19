@@ -53,11 +53,15 @@ public class CSVUtilities
 	
 	public List<Integer> getDataInt(int column)
 	{
-		
+		List<Integer> dataInt = new ArrayList<Integer>();
+		List<Integer> data = new ArrayList<Integer>();
+		return data;
 	}
 	
 	public List<Double> getDataDouble(int column)
 	{
-		
+		List<Double> dataInt = new ArrayList<Double>();
+		List<Double> data = new ArrayList<Double>();
+		return data;
 	}
 }
