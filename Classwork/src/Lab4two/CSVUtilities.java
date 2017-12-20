@@ -39,28 +39,33 @@ public class CSVUtilities
 		return Arrays.asList(columns.get(0).split(","));
 	}
 	
-	public List<String> getDataString(int columns)
+	public List<String> getDataString(int column)
 	{
 		List<String> dataString = new ArrayList<String>();
 		List<String> data =  new ArrayList<String>();
 		for(int i = 0; i < this.CSVData.size(); i++)
 		{
 			dataString = Arrays.asList(this.CSVData.get(i).split(","));
-			data.add(dataString.get(columns));
+			data.add(dataString.get(column));
 		}
 		return data;
 	}
 	
 	public List<Integer> getDataInt(int column)
 	{
-		List<Integer> dataInt = new ArrayList<Integer>();
+		List<String> dataInt = new ArrayList<String>();
 		List<Integer> data = new ArrayList<Integer>();
+		for(int i = 0; i < this.CSVData.size(); i++)
+		{
+			dataInt = Arrays.asList(this.CSVData.get(i).split(","));
+			data.add(Integer.parseInt(dataInt.get(column)));
+		}
 		return data;
 	}
 	
 	public List<Double> getDataDouble(int column)
 	{
-		List<Double> dataInt = new ArrayList<Double>();
+		List<Double> dataDouble = new ArrayList<Double>();
 		List<Double> data = new ArrayList<Double>();
 		return data;
 	}
