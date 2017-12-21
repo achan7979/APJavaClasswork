@@ -15,7 +15,7 @@ public class CSVUtilities
 	public CSVUtilities(File csv)
 	{
 		Scanner in = null;
-		List<String> data = new ArrayList<>(); 
+		ArrayList<String> data = new ArrayList<>(); 
 		try 
 		{
 			in = new Scanner(csv);
@@ -28,9 +28,7 @@ public class CSVUtilities
 		{
 			data.add(in.nextLine());
 		}
-		this.CSVData = (ArrayList<String>) data;
-		String[] columns = data.get(0).split(",");
-		this.numColumns = columns.length;
+		this.CSVData = data;
 	}
 	
 	public List<String> getColumnHeaders()
@@ -42,11 +40,14 @@ public class CSVUtilities
 	public List<String> getDataString(int column)
 	{
 		List<String> dataString = new ArrayList<String>();
-		List<String> data =  new ArrayList<String>();
-		for(int i = 0; i < this.CSVData.size(); i++)
+		List<String> data = new ArrayList<String>();
+		for(int i = 1; i < this.CSVData.size() - 1; i++)
 		{
-			dataString = Arrays.asList(this.CSVData.get(i).split(","));
-			data.add(dataString.get(column));
+			dataString = Arrays.asList(this.CSVData.get(i).split(","))
+			for(column < this.CSVData.size())
+			{
+				data.add(dataString.get(column));
+			}
 		}
 		return data;
 	}
@@ -55,18 +56,29 @@ public class CSVUtilities
 	{
 		List<String> dataInt = new ArrayList<String>();
 		List<Integer> data = new ArrayList<Integer>();
-		for(int i = 0; i < this.CSVData.size(); i++)
+		for(int i = 1; i < this.CSVData.size()-1; i++)
 		{
 			dataInt = Arrays.asList(this.CSVData.get(i).split(","));
-			data.add(Integer.parseInt(dataInt.get(column)));
+			if(column < this.CSVData.get(0).split(",").length)
+			{
+				data.add(Integer.parseInt(dataInt.get(column)));
+			}
 		}
 		return data;
 	}
 	
 	public List<Double> getDataDouble(int column)
 	{
-		List<Double> dataDouble = new ArrayList<Double>();
+		List<String> dataDouble = new ArrayList<String>();
 		List<Double> data = new ArrayList<Double>();
+		for(int i = 1; i < this.CSVData.size() - 1; i++)
+		{
+			dataDouble = Arrays.asList(this.CSVData.get(i).split(","));
+			if(column < this.CSVData.get(0).split(",").length)
+			{
+				data.add(Double.parseDouble(dataDouble.get(column)));
+			}
+		}
 		return data;
 	}
 }
