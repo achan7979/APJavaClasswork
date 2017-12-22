@@ -41,17 +41,16 @@ public class CSVUtilities
 	{
 		List<String> dataString = new ArrayList<String>();
 		List<String> data = new ArrayList<String>();
-		for(int i = 1; i < this.CSVData.size() - 1; i++)
+		for(int i = 1; i < this.CSVData.size()-1; i++)
 		{
-			dataString = Arrays.asList(this.CSVData.get(i).split(","))
-			for(column < this.CSVData.size())
+			dataString = Arrays.asList(this.CSVData.get(i).split(","));
+			if(column < this.CSVData.get(0).split(",").length)
 			{
 				data.add(dataString.get(column));
 			}
 		}
 		return data;
 	}
-	
 	public List<Integer> getDataInt(int column)
 	{
 		List<String> dataInt = new ArrayList<String>();
