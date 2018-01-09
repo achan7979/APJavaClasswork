@@ -1,5 +1,13 @@
 package Lab4three;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Paths;
+import java.util.Scanner;
+
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -18,9 +26,15 @@ public class GameCode extends Application
 	public static long timer;
 	public static void main(String[] args) 
 	{
+		Scanner in = new Scanner(System.in);
+		System.out.println("What is your name player?");
+		String playerName = in.next();
 		launch(args);
+		append("results.csv", playerName + "," + score);
+		System.out.println("Your score has been added!");
 	}
-	    
+	
+
 	@Override
 	public void start(Stage primaryStage) 
 	{
@@ -61,6 +75,7 @@ public class GameCode extends Application
 				playerScore.setText("Score: " + Integer.toString(score) + "       ");
 			}
 		}.start();
+		
 		StackPane root = new StackPane();
 		HBox hbox = new HBox();
 		root.getChildren().add(hbox);
@@ -69,5 +84,24 @@ public class GameCode extends Application
 		root.getChildren().add(btn);
 		primaryStage.setScene(new Scene(root, 300, 250));
 		primaryStage.show();
+	}
+	
+	public static void append(String fileName, String line) 
+	{
+		try (FileWriter pw = new FileWriter(Paths.get(fileName).toString(), true);) 
+		{
+			for (String s : line.split(",")) 
+			{
+		 		pw.append(s);
+		 		pw.append(',');
+		 	}
+		 	pw.append('\n');
+		 	pw.flush();
+		 	pw.close();
+		} 
+		catch (IOException e) 
+		{
+		 	e.printStackTrace();
+		}
 	}
 }

@@ -2,6 +2,7 @@ package Lab4two;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -29,6 +30,23 @@ public class CSVUtilities
 			data.add(in.nextLine());
 		}
 		this.CSVData = data;
+	}
+	
+	public void writeHighScoreToCSV (File csv, String name, int score)
+	{
+		PrintWriter pw = null;
+		try
+		{
+			pw = new PrintWriter(csv);
+		}
+		catch(FileNotFoundException e)
+		{
+			System.err.println(e);
+		}
+		StringBuilder sb = new StringBuilder();
+		sb.append(name + "," + score + "\n");
+		pw.write(sb.toString());
+		pw.close();
 	}
 	
 	public List<String> getColumnHeaders()
