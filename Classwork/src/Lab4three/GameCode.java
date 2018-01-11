@@ -40,17 +40,25 @@ public class GameCode extends Application
 		append("results.csv", playerName + "," + score);
 		List<Player> highScores = readScoresFromCSV("results.csv"); 
 		selectionSort(highScores);
+		/*
 		for (Player b : highScores) 
 		{ 
 			System.out.print(b.name + ", "); 
 			System.out.println(b.score); 
 		}
+		*/
 		writeToCSV(highScores);
 		System.out.println("Your score has been added! Check results.csv for all the scores placed!");
 	}
 	
 
 	@Override
+	/**
+	 * Creates the initial stage with a button and some text that will eventually change
+	 * depending on the state of the game. Every time the mouse is clicked, score will
+	 * be incremented by one. The timer will disable to button after 10 seconds. After,
+	 * the window will need to be closed in order for the scores to be added.
+	 */
 	public void start(Stage primaryStage) 
 	{
 		primaryStage.setTitle("Button Clicker");
@@ -58,7 +66,7 @@ public class GameCode extends Application
 		btn.setText("Click!");
 		Text playerScore = new Text("Score: ");
 		Text status = new Text("Game On!");
-
+		
 		btn.setOnAction(new EventHandler<ActionEvent>() 
 		{
 			@Override
@@ -101,6 +109,14 @@ public class GameCode extends Application
 		primaryStage.show();
 	}
 	
+	/**
+	 * This method access the file through using the relative path of the file and 
+	 * splits the data by commas. It splits the line that is passed in and appends 
+	 * it to the CSV file and as a result, to the high score list.
+	 * 
+	 * @param fileName a String representing the file name
+	 * @param line a String of data meant to be appended
+	 */
 	public static void append(String fileName, String line) 
 	{
 		try (FileWriter pw = new FileWriter(Paths.get(fileName).toString(), true);) 
@@ -120,6 +136,14 @@ public class GameCode extends Application
 		}
 	}
 	
+	/**
+	 *This method actually writes into the CSV file by creating a new print writer object
+	 *and overwrites the file currently in the directory. It takes in the list of players and 
+	 *first appends the headers. Then the for loop skips the headers and continues to append
+	 *all the data into the CSV file and closes the print writer.
+	 *  
+	 * @param theScores the List of player objects that have the players name and score.
+	 */
 	public static void writeToCSV(List<Player> theScores)
 	{
 		PrintWriter pw = null;
@@ -141,6 +165,13 @@ public class GameCode extends Application
 		pw.close();
 	}
 	
+	/**
+	 * This method reads the data from the CSV file by splitting the data by commas and creates a player
+	 * based on the data thats being read in. It then adds the player into the list and continues to read 
+	 * and returns a list of all the players.
+	 * 
+	 * @param fileName a String representing the file name
+	 */
 	private static List<Player> readScoresFromCSV(String fileName) 
 	{ 
 		List<Player> theScores = new ArrayList<>(); 
@@ -163,6 +194,12 @@ public class GameCode extends Application
 		return theScores;
 	}
 	
+	/**
+	 * Creates a new player object based on the data that is passed in the String array
+	 * 
+	 * @param metadata a String array with the data of the player
+	 * @return the Player 
+	 */
 	private static Player createPlayer(String[] metadata) 
 	{ 
 		String name = metadata[0]; 
@@ -170,6 +207,13 @@ public class GameCode extends Application
 		return new Player(name, score);
 	}
 	
+	/**
+	 * This is meant to sort the players based on score. Since the score field of the players
+	 * are Strings, this method converts the string into an integer and compares their values
+	 * and sorts them in descending order. 
+	 * 
+	 * @param list1 the List of players that played the game
+	 */
 	public static void selectionSort(List<Player> list1)
 	{
 		for(int i = 1; i < list1.size(); i++)
@@ -184,6 +228,13 @@ public class GameCode extends Application
 		}
 	}
 	
+	/**
+	 * Helper method to swap objects in the List
+	 * 
+	 * @param a the List of players
+	 * @param i the index of the player object to be swapped with j
+	 * @param j the index of the player object to be swapped with i
+	 */
 	private static void swap(List<Player> a, int i, int j)
 	{
 	    Player temp = a.get(i);
