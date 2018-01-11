@@ -45,7 +45,7 @@ public class GameCode extends Application
 			System.out.print(b.name + ", "); 
 			System.out.println(b.score); 
 		}
-		
+		writeToCSV(highScores);
 		System.out.println("Your score has been added! Check results.csv for all the scores placed!");
 	}
 	
@@ -120,6 +120,27 @@ public class GameCode extends Application
 		}
 	}
 	
+	public static void writeToCSV(List<Player> theScores)
+	{
+		PrintWriter pw = null;
+		try
+		{
+			pw = new PrintWriter(new File("results.csv"));
+		}
+		catch(FileNotFoundException e)
+		{
+			System.err.println(e);
+		}
+		StringBuilder sb = new StringBuilder();
+		sb.append("Name,High Score\n");
+		for(int i = 1; i < theScores.size(); i++)
+		{
+			sb.append(theScores.get(i).name + "," + theScores.get(i).score + "\n");
+		}
+		pw.write(sb.toString());
+		pw.close();
+	}
+	
 	private static List<Player> readScoresFromCSV(String fileName) 
 	{ 
 		List<Player> theScores = new ArrayList<>(); 
@@ -155,7 +176,7 @@ public class GameCode extends Application
 		{
 			for(int j = i+1; j < list1.size(); j++)
 			{
-				if(list1.get(i).score.compareTo(list1.get(j).score) < 0)
+				if(Integer.parseInt(list1.get(i).score) < Integer.parseInt(list1.get(j).score))
 				{
 					swap(list1,i,j);
 				}
